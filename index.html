@@ -1,203 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohith Kodali | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohith Kodali - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f9f9f9;
-      --text: #1f1f1f;
-      --primary: #4f46e5;
-      --accent: #14b8a6;
-      --card: #ffffff;
-    }
-
-    [data-theme="dark"] {
-      --bg: #1a1a1a;
-      --text: #f0f0f0;
-      --primary: #818cf8;
-      --accent: #5eead4;
-      --card: #2a2a2a;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      padding: 20px;
+      background-color: #121212;
+      color: #f5f5f5;
       line-height: 1.6;
-      transition: background-color 0.4s ease, color 0.4s ease;
-    }
-
-    header, section, footer {
-      max-width: 900px;
-      margin: 0 auto 50px auto;
-      padding: 20px;
-      background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
+      scroll-behavior: smooth;
     }
 
     header {
-      animation-delay: 0.1s;
-    }
-    section:nth-of-type(1) { animation-delay: 0.2s; }
-    section:nth-of-type(2) { animation-delay: 0.3s; }
-    section:nth-of-type(3) { animation-delay: 0.4s; }
-    section:nth-of-type(4) { animation-delay: 0.5s; }
-    section:nth-of-type(5) { animation-delay: 0.6s; }
-    footer { animation-delay: 0.7s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      background: #1f1f1f;
+      padding: 2rem;
+      text-align: center;
     }
 
     header h1 {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 10px;
+      font-size: 2.5rem;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    section h2 {
-      font-size: 1.5rem;
-      color: var(--accent);
-      margin-bottom: 15px;
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #282828;
+      padding: 1rem;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-
-    a {
-      color: var(--primary);
+    nav a {
+      color: #ccc;
       text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
 
-    a:hover {
-      text-decoration: underline;
+    nav a:hover {
+      color: #fff;
     }
 
-    footer {
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.1rem;
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
     }
 
-    @media (max-width: 600px) {
-      header h1, section h2 {
-        font-size: 1.3rem;
+    section.visible {
+      opacity: 1;
+    }
+
+    h2 {
+      color: #61dafb;
+      margin-bottom: 1rem;
+    }
+
+    .project, .experience {
+      background: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tech-stack img {
+      width: 60px;
+      height: 60px;
+      margin: 10px;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .tech-stack img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.1);
+    }
+
+    .animated-section {
+      animation: zoomIn 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
       }
 
-      body {
-        padding: 10px;
+      to {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
 
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--card);
-      border: none;
-      padding: 10px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      font-weight: bold;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
   </style>
 </head>
+
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Mode</button>
   <header>
     <h1>👋 Hi, I'm Rohith Kodali</h1>
-    <p>BTech Electronics and Computer Engineering @ VIT Chennai</p>
-    <p>Passionate about Android Development, AI/ML, and Full-Stack Web Development</p>
+    <p>Android Dev | AI/ML | Web Dev | BTech @ VIT Chennai</p>
   </header>
 
-  <section id="contact">
-    <h2>📬 Contact</h2>
-    <p>Email: rohith.kodali.6818@gmail.com / kodalil.rohith2023@vitstudent.ac.in</p>
-    <p><a href="https://www.linkedin.com/in/rohith-kodali-aa83ab2a3/">LinkedIn</a> | <a href="https://github.com/rohith1832">GitHub</a> | <a href="https://drive.google.com/drive/folders/1fiY2Wsd5ypgHf1UvBV7rFOs4XC6leQvb">Resume</a></p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="animated-section">
+    <h2>About Me</h2>
+    <p>BTech Electronics and Computer Engineering @ VIT Chennai. Passionate about Android Development, AI/ML, and Full-Stack Web Development.</p>
   </section>
 
-  <section id="experience">
-    <h2>💼 Experience</h2>
-    <ul>
-      <li><strong>Android Developer Intern – Imarticus Learning</strong><br>Built Blood Link app; scored 98; Kotlin, Firebase, Jetpack</li>
-      <li><strong>AI Intern – Samsung PRISM</strong><br>Trained AI models using C/C++ & Python</li>
-      <li><strong>Infosys Springboard</strong> (Upcoming)<br>Python/AI-based project training</li>
-    </ul>
+  <section id="experience" class="animated-section">
+    <h2>Experience</h2>
+    <div class="experience">
+      <h3>Android Developer Intern – Imarticus Learning</h3>
+      <p>Built 'Blood Link' app using Kotlin + Firebase. Scored 98.</p>
+    </div>
+    <div class="experience">
+      <h3>AI Intern – Samsung PRISM</h3>
+      <p>Trained AI models using C/C++ and Python. Focused on low-level optimizations.</p>
+    </div>
+    <div class="experience">
+      <h3>Upcoming: Infosys Springboard</h3>
+      <p>AI and Python-based training and projects.</p>
+    </div>
   </section>
 
-  <section id="projects">
-    <h2>🚀 Projects</h2>
-    <ul>
-      <li><strong>📱 Studii AI:</strong> Kotlin, OCR, NLP — note scanning & study planner (Triwizardathon)</li>
-      <li><strong>🩸 Blood Link:</strong> Kotlin, Firebase — real-time donor app (<a href="https://lnkd.in/gVUQCsMb">GitHub</a>)</li>
-      <li><strong>🔐 Blockchain Voting:</strong> Solidity, Web3.js — secure voting platform (Defy’25)</li>
-      <li><strong>🚗 Autonomous Driving Bot:</strong> Python, OpenCV — CARLA simulator (Deep Drive)</li>
-    </ul>
+  <section id="projects" class="animated-section">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Studii AI</h3>
+      <p>Note scanning + flashcards + study plan generator. (Kotlin, Jetpack, OCR, NLP)</p>
+    </div>
+    <div class="project">
+      <h3>Blood Link</h3>
+      <p>Real-time blood donor finder app. (Kotlin, Firebase)</p>
+    </div>
+    <div class="project">
+      <h3>Blockchain Voting</h3>
+      <p>Secure e-voting platform. (Solidity, Web3.js)</p>
+    </div>
+    <div class="project">
+      <h3>Autonomous Driving</h3>
+      <p>AI driving bot in CARLA sim. (Python, OpenCV, RL)</p>
+    </div>
   </section>
 
-  <section id="skills">
-    <h2>🛠️ Skills</h2>
-    <ul>
-      <li><strong>Languages:</strong> Python, C++, Java, Kotlin, C, HTML, CSS, JavaScript</li>
-      <li><strong>Tools:</strong> Android Studio, Firebase, Jetpack, Retrofit, Moshi, Git, VS Code, Figma</li>
-      <li><strong>Domains:</strong> Android Dev, AI/ML, Web Dev, DSA, CN, VLSI</li>
-    </ul>
+  <section id="skills" class="animated-section">
+    <h2>Tech Stack</h2>
+    <div class="tech-stack">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+    </div>
   </section>
 
-  <section id="achievements">
-    <h2>🏆 Achievements</h2>
-    <ul>
-      <li>Defy 2024 & 2025 finalist – Blockchain & AI projects</li>
-      <li>Triwizardathon – Built Studii AI</li>
-      <li>Humanoidx Club @ VIT – Electrical department</li>
-      <li>SIH 2025 – National level participant</li>
-    </ul>
+  <section id="contact" class="animated-section">
+    <h2>Contact</h2>
+    <p>Email: rohith.kodali.6818@gmail.com</p>
+    <p>GitHub: <a href="https://github.com/rohith1832" target="_blank">github.com/rohith1832</a></p>
+    <p>Resume: <a href="https://drive.google.com/drive/folders/1fiY2Wsd5ypgHf1UvBV7rFOs4XC6leQvb" target="_blank">View</a></p>
   </section>
-
-  <footer>
-    <p>Thanks for stopping by! Let's connect and build something awesome 🚀</p>
-  </footer>
 
   <script>
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      if (currentTheme === "dark") {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("theme", "light");
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
-      }
-    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
 
-    // Load saved theme on page load
-    window.onload = function () {
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      }
-    }
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
+
 </html>
